@@ -14,6 +14,7 @@ import { Label } from '@/components/ui/label';
 
 import { loginSchema, type LoginFormData } from '@/schemas/auth-schema';
 import { login } from '@/services/auth-service';
+import Link from 'next/link';
 
 export function LoginForm() {
   const router = useRouter();
@@ -96,6 +97,15 @@ export function LoginForm() {
             {errors.password && (
               <p className="text-sm text-destructive">{errors.password.message}</p>
             )}
+          </div>
+
+          <div className="flex justify-end">
+            <Link
+              href="/login/forgot-password"
+              className="text-sm text-muted-foreground hover:text-foreground hover:underline"
+            >
+              Esqueci minha senha
+            </Link>
           </div>
 
           {serverError && (
